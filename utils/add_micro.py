@@ -18,7 +18,7 @@ publish_date = datetime.datetime.now()
 formatted_date = publish_date.strftime("%Y-%m-%d %H:%M")
 
 # Open CSV file and append a new row with formatted date and content
-with open('./blog_app/db/micros.csv', 'a', encoding='UTF-8', newline='') as micros_db:
+with open('./app/db/micros.csv', 'a', encoding='UTF-8', newline='') as micros_db:
     writer = csv.writer(micros_db)
     writer.writerow([formatted_date, content])
 
