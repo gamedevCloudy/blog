@@ -36,9 +36,37 @@ def load_micros():
 
 micros = load_micros()
 
+
+def load_blogs(): 
+    blogs = []
+    CSV_FILE_PATH = os.path.join(app.root_path, 'db', 'posts.csv')
+    try: 
+        with open(CSV_FILE_PATH, mode='r', encoding='UTF-8') as file: 
+            reader = csv.reader(file)
+            for row in reader: 
+                blog= {}
+                post_time = datetime.strptime(row[0], "%Y-%m-%d %H:%M")
+                
+                blog['datetime'] = post_time.strftime("%d-%m-%Y") + " " + post_time.strftime('%H:%M')
+                blog['title'] = row[1]
+                blog['description'] = row[2]
+                blog['permalink'] = row[4]
+
+                blogs.append(blog)
+           
+    except Exception as e: 
+
+        print("Failed loading blogs.. ")
+        exit(e)
+    # 
+    blogs = blogs[-3:]
+    blogs = blogs[::-1]
+    return blogs
+
+blogs = load_blogs()
 @app.route('/')
 def blog(): 
-    return render_template('index.html', micros=micros)
+    return render_template('index.html', micros=micros, blogs=blogs)
 
 if __name__ == '__main__':
     app.run(debug=True)

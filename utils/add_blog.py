@@ -16,13 +16,17 @@ CSV structure:
 DB_PATH = './app/db/posts.csv'
 
 blog: dict= { 
-    'date': datetime.datetime.now(),
+    'date': None,
     'title': None,
     'description': None,
     'filepath': None,
     'permalink': None,
     'tags': None
 }
+
+t = datetime.datetime.now()
+formatted_t = t.strftime("%Y-%m-%d %H:%M")
+blog['date'] = formatted_t
 
 # base title and description
 blog['title'] = str(input('Blog Title: '))
@@ -32,7 +36,7 @@ stripped_title: str = blog['title'].split(' ')
 delimited_title: str = '-'.join(stripped_title)
 
 # blog path
-path: str= blog['date'].strftime("%Y-%m-%d") + '-' + delimited_title
+path: str= t.strftime("%Y-%m-%d") + '-' + delimited_title
 
 blog['filepath'] = os.path.join('app', 'db', '_posts', path)
 blog['permalink'] = os.path.join('posts', path)
