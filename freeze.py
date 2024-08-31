@@ -1,4 +1,4 @@
-from blog_app import app
+from app import app
 from flask_frozen import Freezer
 
 

@@ -15,7 +15,7 @@ CSV structure:
 
 DB_PATH = './app/db/posts.csv'
 
-blog = {
+blog: dict= { 
     'date': datetime.datetime.now(),
     'title': None,
     'description': None,
@@ -28,14 +28,14 @@ blog = {
 blog['title'] = str(input('Blog Title: '))
 blog['description'] = str(input('Description: '))
 
-stripped_title = blog['title'].split(' ')
-delimited_title = '-'.join(stripped_title)
+stripped_title: str = blog['title'].split(' ')
+delimited_title: str = '-'.join(stripped_title)
 
 # blog path
-path = blog['date'].strftime("%Y-%m-%d") + '-' + delimited_title
+path: str= blog['date'].strftime("%Y-%m-%d") + '-' + delimited_title
 
-blog['filepath'] = os.path('app', 'db', '_posts', path)
-blog['permalink'] = os.join('posts', path)
+blog['filepath'] = os.path.join('app', 'db', '_posts', path)
+blog['permalink'] = os.path.join('posts', path)
 
 # tags
 tags = [tag for tag in str(input('Tags: ')).split()]
@@ -45,20 +45,25 @@ blog['tags'] = tags
 
 try: 
     # create the blog
-    with open(blog['filepath']+ '.md', 'w', encoding='UTF-8') as blog: 
-        blog.write(blog['content'])
-
-    # then create entry
-    try: 
-        with open(DB_PATH, 'a'): 
-            writer = csv.writer()
-            writer.write(
-                list(blog)
-            )
-    except Exception as e:
-        print("""\n Failed to create DB Entry""")
-        exit(e) 
+    filename = blog['filepath']+".md"
+    print(filename)
+    with open(filename, 'w', encoding='UTF-8') as blog_file: 
+        print("a")
+        content = str(input("Enter blog_file content: "))
+        blog_file.writelines(content)
+        blog_file.close()
 
 except Exception as e:
     print("""\n Failed to write the blog.""")
     exit(e) 
+# then create entry
+
+try: 
+    with open(DB_PATH, 'a') as blog_db: 
+        writer = csv.writer(blog_db)
+        writer.writerow(blog.values())
+       
+except Exception as e:
+    print("""\n Failed to create DB Entry""")
+    exit(e) 
+
