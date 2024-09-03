@@ -15,15 +15,6 @@ def go_to_blog():
         yield {'post_name': post['permalink'].split('/')[-1]}
 
 
-# Enforce `.html` extension for URLs
-@app.url_defaults
-def add_extension(endpoint, values):
-    if 'url' not in values:
-        return
-    if endpoint == 'go_to_blog' and not values['url'].endswith('.html'):
-        values['url'] += '.html'
-    if endpoint == 'blogs' and not values['url'].endswith('.html'):
-        values['url'] += '.html'
 
 if __name__ == '__main__':
     freezer.freeze()

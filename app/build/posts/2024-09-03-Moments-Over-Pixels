@@ -15,7 +15,7 @@
     />
   </head>
 
-  <body class="container">
+  <body>
     <header>
       <nav>
         <ul>
@@ -40,8 +40,9 @@
       </nav>
     </header>
     <main>
-      <h1>Moments Over Pixels</h1>
-      <p>One should buy a budget camera + a cheaper phone than a flagship phone.</p>
+      <div class="container" name="post">
+        <h1>Moments Over Pixels</h1>
+        <p>One should buy a budget camera + a cheaper phone than a flagship phone.</p>
 <p>MKBHD says, <a href="https://x.com/MKBHD/status/1656345593143508993">"What is a photo?"</a>. We've come so far in computational photography that computed photos are indistinguishable from real ones.
 I recently tried Google's 'Add Me', and it's really believable.</p>
 <p>In general, I do not like the ease of photos. How we feel every moment needs to be captured and why we need only the top x phone to get the best moments possible.</p>
@@ -53,6 +54,7 @@ Somehow, we have trained our brains to enjoy 'shareable moments' more than whate
 <p>It's fine when you're alone and find something too cute/fun to not share with one person.</p>
 <p>But next time you pull your phone out to take a pic, maybe smile at what you saw and put it back in.</p>
 
+      </div>
     </main>
     <footer>
       <nav>
