@@ -21,8 +21,8 @@
       </ul>
       <ul>
         <li><a href="https://aayushakacloudy.is-a.dev/blog">home</a></li>
-        <li><a href="/blogs">blogs</a></li>
-        <li><a href="/macros">macros</a></li>
+        <li><a href="https://aayushakacloudy.is-a.dev/blogs">blogs</a></li>
+        <li><a href="https://aayushakacloudy.is-a.dev/macros">macros</a></li>
       </ul>
       <ul>
         <li>
@@ -35,7 +35,7 @@
   </header>
   <main>
     {% if blogs %}
-    <h2>Recent Blogs: </h2>
+    <h2>All Blogs: </h2>
     {% for blog in blogs %}
     <div>
 
@@ -46,16 +46,7 @@
       <br>
     </div>
     {% endfor %}
-    <hr />
-    {% endif %} {% if micros %}
-    <h2>Micros:</h2>
-    {% for micro in micros %}
-    <div>
-      <small>{{ micro.publish_date +"\t"+ micro.publish_time }}</small>
-
-      <p>{{ micro.content }}</p>
-    </div>
-    {% endfor %} {% endif %}
+    {% endif %}
   </main>
   <footer>
     <nav>
