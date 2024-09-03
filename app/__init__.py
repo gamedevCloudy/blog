@@ -93,7 +93,7 @@ blogs = load_blogs()
 def blog(): 
     return render_template('index.html', micros=micros, blogs=blogs)
 
-@app.get('/posts/<post_name>.html')
+@app.get('/posts/<post_name>')
 def go_to_blog(post_name):
     print(post_name)
     posts = load_posts()
@@ -114,7 +114,7 @@ if __name__ == '__main__':
     app.run(debug=True)
 
 
-@app.get('/blogs.html')
+@app.get('/blogs')
 def get_blogs(): 
     blogs = load_posts()
 
