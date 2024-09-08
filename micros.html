@@ -18,31 +18,28 @@
 <body class="container">
   <header>
     <p hx-get='nav.html' hx-swap='outerHTML' hx-trigger='load'></p>
-    
   </header>
-  <main class="container">
-    {% if blogs %}
-    <h2>Recent Blogs: </h2>
-    {% for blog in blogs %}
+    
+    <h2>All Micros:</h2>
+    
     <div>
+      <small>30-08-2024	15:30</small>
 
-      <h4><a href={{ blog['permalink']}}.html >{{ blog['title']}}</a></h4>
-      <small>{{ blog['datetime'] }}</small>
-
-      <p>{{ blog['description'] }}</p>
-      <br>
+      <p>Namaste, mai aayush. </p>
     </div>
-    {% endfor %}
-    <hr />
-    {% endif %} {% if micros %}
-    <h2>Micros:</h2>
-    {% for micro in micros %}
+    
     <div>
-      <small>{{ micro.publish_date +"\t"+ micro.publish_time }}</small>
+      <small>30-08-2024	15:29</small>
 
-      <p>{{ micro.content }}</p>
+      <p>Bonsoir, Elliot. </p>
     </div>
-    {% endfor %} {% endif %}
+    
+    <div>
+      <small>30-08-2024	15:25</small>
+
+      <p>Hello, World!</p>
+    </div>
+     
   </main>
   <footer>
     <nav>
