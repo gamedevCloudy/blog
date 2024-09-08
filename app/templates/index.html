@@ -11,27 +11,14 @@
   <meta name="author" content="Aayush Chaudhary" />
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.indigo.min.css" />
+
+  <script src="https://unpkg.com/htmx.org@2.0.2"></script>
 </head>
 
 <body class="container">
   <header>
-    <nav>
-      <ul>
-        <li><strong>baadal</strong></li>
-      </ul>
-      <ul>
-        <li><a href="https://aayushakacloudy.is-a.dev/blog">home</a></li>
-        <li><a href="/blogs">blogs</a></li>
-        <li><a href="/macros">macros</a></li>
-      </ul>
-      <ul>
-        <li>
-          <button id="rss-btn">
-            <img src="https://cdn-icons-png.flaticon.com/512/4945/4945844.png" alt="RSS Feed" style="height: 1rem" />
-          </button>
-        </li>
-      </ul>
-    </nav>
+    <p hx-get='nav.html' hx-swap='outerHTML' hx-trigger='load'></p>
+    
   </header>
   <main class="container">
     {% if blogs %}
@@ -39,7 +26,7 @@
     {% for blog in blogs %}
     <div>
 
-      <h4><a href={{blog['permalink']}}>{{ blog['title']}}</a></h4>
+      <h4><a href={{ blog['permalink']}}.html >{{ blog['title']}}</a></h4>
       <small>{{ blog['datetime'] }}</small>
 
       <p>{{ blog['description'] }}</p>
