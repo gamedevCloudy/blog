@@ -1,0 +1,25 @@
+<nav>
+  <ul>
+    <li><strong>baadal</strong></li>
+  </ul>
+  <ul>
+    <li><a href="{{ url_for('blog')}}">home</a></li>
+    <li>
+      <a href="{{ url_for('get_blogs')}}">blogs</a>
+    </li>
+    <li><a href="{{ url_for('get_micros')}}">micros</a></li>
+  </ul>
+  <ul>
+    <li>
+      <a href="{{ url_for('rss_feed') }}">
+        <button id="rss-btn">
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/4945/4945844.png"
+            alt="RSS Feed"
+            style="height: 1rem"
+          />
+        </button>
+      </a>
+    </li>
+  </ul>
+</nav>
