@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+    <channel>
+        <title>Aayush's Blog's</title>
+        <link>https://aayushakacloudy.is-a.dev/blog</link>
+        <description>a place to be</description>
+        <lastBuildDate>Tue, 03 Sep 2024 08:05:00 -0000</lastBuildDate>
+        <language>en-us</language>
+
+        
+        <item>
+            <title>Moments Over Pixels</title>
+            <link>https://aayushakacloudy.is-a.dev/posts/2024-09-03-Moments-Over-Pixels.html</link>
+            <description>One should buy a budget camera and a cheap phone than a flagship phone.</description>
+            <pubDate>03-09-2024 08:05</pubDate>
+            <guid>https://aayushakacloudy.is-a.dev/posts/2024-09-03-Moments-Over-Pixels.html</guid>
+        </item>
+        
+    </channel>
+</rss>
