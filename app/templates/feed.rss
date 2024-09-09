@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0">
+<rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Aayush's Blog's</title>
+        <title>Aayush's Blog</title>
         <link>https://aayushakacloudy.is-a.dev/blog</link>
         <description>a place to be</description>
         <lastBuildDate>{{ last_build_date }}</lastBuildDate>
@@ -10,10 +10,11 @@
         {% for blog in blogs %}
         <item>
             <title>{{ blog.title }}</title>
-            <link>https://aayushakacloudy.is-a.dev/{{ blog.permalink }}.html</link>
+            <link>https://aayushakacloudy.is-a.dev/blog/{{ blog.permalink }}.html</link>
             <description>{{ blog.description }}</description>
+            <content:encoded><![CDATA[{{ blog.content }}]]></content:encoded>
             <pubDate>{{ blog.datetime }}</pubDate>
-            <guid>https://aayushakacloudy.is-a.dev/{{ blog.permalink }}.html</guid>
+            <guid>https://aayushakacloudy.is-a.dev/blog/{{ blog.permalink }}.html</guid>
         </item>
         {% endfor %}
     </channel>

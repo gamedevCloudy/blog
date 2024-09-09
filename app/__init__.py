@@ -1,4 +1,4 @@
-from flask import Flask, render_template, make_response, jsonify
+from flask import Flask, render_template, make_response 
 import csv
 import os
 from datetime import datetime
@@ -73,6 +73,15 @@ def load_blogs(latest_k=0) -> list:
         blogs = blogs[::-1]
         return blogs
 
+def read_content(post) -> str: 
+    file_path = app.root_path +  post['path'] + '.md'
+    print(file_path)
+    with open(file_path, 'r') as f: 
+        content = f.read()
+    content = markdown(content)
+
+    return content
+
 @app.route('/')
 def blog(): 
     blogs = load_blogs(latest_k=3)
@@ -82,17 +91,10 @@ def blog():
 @app.get('/posts/<post_name>.html')
 def go_to_blog(post_name):
     posts = load_blogs()
-    post_to_display = None
 
     post_to_display = [post for post in posts if post['permalink'] == f'posts/{post_name}']
-    content = None
 
-    # open blog file
-    file_path = app.root_path +  post_to_display[0]['path'] + '.md'
-    print(file_path)
-    with open(file_path, 'r') as f: 
-        content = f.read()
-    content = markdown(content)
+    content = read_content(post_to_display[0])
 
     return render_template('blog.html', post=post_to_display[0], content=content)
 
@@ -116,6 +118,10 @@ def rss_feed():
     else:
         last_build_date = format_datetime(datetime.now())
 
+
+    for i in range(len(blogs)): 
+        blogs[i]['content'] = read_content(blogs[i])
+    
     # Render the RSS feed using an XML template
     rss = render_template('feed.rss', blogs=blogs, last_build_date=last_build_date)
     response = make_response(rss)
