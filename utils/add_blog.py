@@ -32,7 +32,8 @@ blog['date'] = formatted_t
 blog['title'] = str(input('Blog Title: '))
 blog['description'] = str(input('Description: '))
 
-stripped_title: str = blog['title'].split(' ')
+
+stripped_title: str = blog['title'].lower().strip().split(' ')
 delimited_title: str = '-'.join(stripped_title)
 
 # blog path
